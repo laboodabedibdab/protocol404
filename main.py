@@ -11,11 +11,11 @@ X_train, Y_train, X_test, Y_test = load_data()
 model = Sequential()
 model.add(Conv1D(32, 3, activation='relu', input_shape=(5*8000, 1)))
 model.add(MaxPooling1D(2))
-model.add(Conv1D(64, 3, activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.001)))
+model.add(Conv1D(64, 3, activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)))
 model.add(MaxPooling1D(2))
 model.add(Flatten())
 model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.2))  # Добавили слой Dropout с вероятностью отключения 20%
+model.add(Dropout(0.4))  # Добавили слой Dropout с вероятностью отключения 20%
 model.add(Dense(1, activation='sigmoid'))
 
 # Компиляция модели
