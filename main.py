@@ -26,6 +26,10 @@ print(X_test.shape)
 print(Y_test.shape)
 
 # Обучение модели
-model.fit(X_train, Y_train, epochs=10, validation_data=(X_test, Y_test))
-print(model.predict(X_test))
-print(Y_test)
+def for_model():
+    model.fit(X_train, Y_train, epochs=10, validation_data=(X_test, Y_test))
+    rez = np.array(model.predict(X_test))
+    Y_test = np.array(Y_test)
+    s = sum(abs(rez-Y_test))
+    acc = s / Len(rez) * 100
+    return model, acc
