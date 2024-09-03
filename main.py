@@ -26,7 +26,7 @@ print(X_test.shape)
 print(Y_test.shape)
 
 # Обучение модели
-def for_model():
+def fit_model():
     model.fit(X_train, Y_train, epochs=10, validation_data=(X_test, Y_test))
     rez = np.array(model.predict(X_test))
     Y_test = np.array(Y_test)
